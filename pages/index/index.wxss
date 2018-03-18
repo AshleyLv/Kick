@@ -3,19 +3,44 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-self: flex-end;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  width: 64rpx;
+  height: 64rpx;
+  margin: 20rpx 20rpx 5rpx 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #333;
+  font-size: 10px;
+  max-width: 100rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 10rpx;
 }
 
-.usermotto {
-  margin-top: 200px;
+.starter {
+  display: flex;
+  flex-direction: row;
+}
+
+.starter .btn {
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  margin-left: 20rpx;
+}
+
+.startButton {
+  width: 150rpx;
+  background-color: #ef943b;
+}
+
+.stopButton {
+  width: 150rpx;
+  background-color: #6d6663;
 }
