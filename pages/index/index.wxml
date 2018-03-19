@@ -10,4 +10,7 @@
     <button class="btn startButton" wx:if="{{status != 'init'}}" bindtap="startTimer"> 开始 </button>
     <button class="btn stopButton" wx:if="{{status == 'running'}}" bindtap="stopTimer"> 停止 </button>
   </view>
+  <view class="status-circle">
+    
+  </view>
 </view>
