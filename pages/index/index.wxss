@@ -23,12 +23,12 @@
   margin-right: 10rpx;
 }
 
-.starter {
+.control {
   display: flex;
   flex-direction: row;
 }
 
-.starter .btn {
+.control .btn {
   font-size: 14px;
   color: #fff;
   text-align: center;
@@ -40,7 +40,29 @@
   background-color: #ef943b;
 }
 
-.stopButton {
+.resetButton {
   width: 150rpx;
   background-color: #6d6663;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx;
+}
+
+.time .group {
+  margin-bottom: 30rpx;
+}
+
+.time .label {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10rpx;
+}
+
+.time .number {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
 }
