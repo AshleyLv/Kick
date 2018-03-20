@@ -26,12 +26,14 @@
 .control {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 }
 
 .control .btn {
   font-size: 14px;
   color: #fff;
   text-align: center;
+  margin-bottom: 50rpx;
   margin-left: 20rpx;
 }
 

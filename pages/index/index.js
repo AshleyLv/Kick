@@ -65,6 +65,11 @@ Page({
     })
   },
   updateCountdown: function() {
+    if(dec <= 0) {
+      clearInterval(timer)
+      app.globalData.status = 'stopped'
+      this.updateStatus()
+    }
     let dec = this.data.cnt - 1;
     this.setData({
       cnt: dec,

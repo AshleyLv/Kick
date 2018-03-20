@@ -9,8 +9,7 @@
   <view class="control">
     <button class="btn startButton" wx:if="{{status == 'init'}}" bindtap="startTimer"> 开始 </button>
     <button class="btn resetButton" wx:if="{{status == 'running'}}" bindtap="resetTimer"> 重置 </button>
-  </view>
-  <view wx:if="{{status == 'running'}}" class="time">
+    <view wx:if="{{status == 'running'}}" class="time">
     <view class="group">
       <text class="label">开始时间:</text>
       <text class="number">{{startTime}}</text>
@@ -20,6 +19,8 @@
       <text class="number">{{cdMinute}}分{{cdSecond}}秒</text>
     </view>
   </view>
+  </view>
+  
   <view class="status-circle">
     
   </view>
