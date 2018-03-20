@@ -20,4 +20,7 @@
       <text class="number">{{cdMinute}}分{{cdSecond}}秒</text>
     </view>
   </view>
+  <view class="status-circle">
+    
+  </view>
 </view>

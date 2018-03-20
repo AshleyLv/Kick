@@ -65,4 +65,10 @@
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+}.status-circle{
+  width:200px;
+  height: 200px;
+  margin: 50px auto 0;
+  background: #fcf9e6;
+  border-radius: 50%;
 }
