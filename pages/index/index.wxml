@@ -30,14 +30,16 @@
     <view class='sector'></view>
     <view class='sector'></view>
     <view class="inner-circle">
-      <image src='../../assets/image/baby.png'></image>
+      <view wx:for="{{sectorCounter}}" class="sector"></view>
+      <view class="inner-circle">
+        <image src='../../assets/image/baby.png'></image>
+      </view>
     </view>
   </view>
-
-  <view class="info">
-  <text class="kicks-label">胎动计数:</text>
-  <text class="kicks-number">{{kicks}}</text>
-  <text class="kicks-label">次</text>
+  <view class="info" style="visibility:{{status == 'running'?'visible':'hidden'}}">
+    <text class="kicks-label">胎动计数:</text>
+    <text class="kicks-number">{{kicks}}</text>
+    <text class="kicks-label">次</text>
   </view>
 
   <view style="visibility:{{status == 'running'?'visible':'hidden'}}" class="adder">

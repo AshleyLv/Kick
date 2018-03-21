@@ -13,6 +13,7 @@ Page({
     cnt: 0,
     kicks: 0,
     hasUserInfo: false,
+    sectorCounter:[],
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
@@ -78,8 +79,19 @@ Page({
       cdMinute: parseInt(dec / 60) > 9 ? parseInt(dec / 60) : '0' + parseInt(dec / 60),
       cdSecond: dec % 60 > 9 ? dec % 60 : '0' + dec % 60 
     })
+    this.drawSector();
   },
-  increment: function() {
+  drawSector: function() {
+    if (this.data.cdSecond=='00'){
+        let counter = this.data.sectorCounter
+        counter.push(1);
+        this.setData({
+          sectorCounter: counter
+        });
+    }
+
+  },
+  increment: function () {
     this.setData({
       kicks: this.data.kicks + 1
     })
