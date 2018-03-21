@@ -1,15 +1,19 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class="row">
+    <view class="control">
+      <button class="btn startButton" wx:if="{{status == 'init'}}" bindtap="startTimer"> 开始 </button>
+      <button class="btn resetButton" wx:if="{{status == 'running'}}" bindtap="resetTimer"> 重置 </button>
+    </view>
+    <view class="userinfo">
+      <block>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+
   </view>
-  <view class="control">
-    <button class="btn startButton" wx:if="{{status == 'init'}}" bindtap="startTimer"> 开始 </button>
-    <button class="btn resetButton" wx:if="{{status == 'running'}}" bindtap="resetTimer"> 重置 </button>
-    <view wx:if="{{status == 'running'}}" class="time">
+  <view style="visibility:{{status == 'running'?'visible':'hidden'}}" class="time">
     <view class="group">
       <text class="label">开始时间:</text>
       <text class="number">{{startTime}}</text>
@@ -19,9 +23,7 @@
       <text class="number">{{cdMinute}}分{{cdSecond}}秒</text>
     </view>
   </view>
-  </view>
-  
   <view class="status-circle">
-    
+
   </view>
 </view>

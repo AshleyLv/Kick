@@ -65,16 +65,17 @@ Page({
     })
   },
   updateCountdown: function() {
+    let dec = this.data.cnt - 1;
     if(dec <= 0) {
       clearInterval(timer)
       app.globalData.status = 'stopped'
       this.updateStatus()
+      return;
     }
-    let dec = this.data.cnt - 1;
     this.setData({
       cnt: dec,
-      cdMinute: parseInt(dec / 60),
-      cdSecond: dec % 60
+      cdMinute: parseInt(dec / 60) > 9 ? parseInt(dec / 60) : '0' + parseInt(dec / 60),
+      cdSecond: dec % 60 > 9 ? dec % 60 : '0' + dec % 60 
     })
   }
 })
