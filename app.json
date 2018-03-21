@@ -1,8 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/config/config"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -16,11 +16,21 @@
       "list": [
         {
           "pagePath": "pages/index/index",
-          "text": "首页"
+          "text": "首页",
+          "iconPath": "assets/image/timer.png",
+          "selectedIconPath": "assets/image/timer_selected.png"
         },
         {
           "pagePath": "pages/history/history",
-          "text": "历史"
+          "text": "历史",
+          "iconPath": "assets/image/history.png",
+          "selectedIconPath": "assets/image/history_selected.png"
+        },
+        {
+          "pagePath": "pages/config/config",
+          "text": "配置",
+          "iconPath": "assets/image/config.png",
+          "selectedIconPath": "assets/image/config_selected.png"
         }
       ]
     }
