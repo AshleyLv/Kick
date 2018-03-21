@@ -24,11 +24,7 @@
     </view>
   </view>
   <view class="status-circle">
-  <view class='sector light'></view>
-  <view class='sector heavy'></view>
-  <view class='sector middle'></view>
-  <view class='sector'></view>
-  <view class='sector'></view>
+    <view wx:for="{{sectorCounter}}" class="sector"></view>
 		  <view class="inner-circle">
       <image src='../../assets/image/baby.png'></image>
       </view>
