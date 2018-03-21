@@ -11,6 +11,7 @@ Page({
     cdMinute: '',
     cdSecond: '',
     cnt: 0,
+    kicks: 0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
@@ -76,6 +77,11 @@ Page({
       cnt: dec,
       cdMinute: parseInt(dec / 60) > 9 ? parseInt(dec / 60) : '0' + parseInt(dec / 60),
       cdSecond: dec % 60 > 9 ? dec % 60 : '0' + dec % 60 
+    })
+  },
+  increment: function() {
+    this.setData({
+      kicks: this.data.kicks + 1
     })
   }
 })
