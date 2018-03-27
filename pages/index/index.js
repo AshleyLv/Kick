@@ -12,6 +12,9 @@ Page({
     cdSecond: '',
     cnt: 0,
     kicks: 0,
+    lastValidTime: new Date('2018.01.01'),
+    countInFiveMins:0,
+    validCount:0,
     hasUserInfo: false,
     sectorCounter:[],
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -82,18 +85,30 @@ Page({
     this.drawSector();
   },
   drawSector: function() {
-    if (this.data.cdSecond=='00'){
+    let status = 'ligth';
+    if (this.data.countInFiveMins >= 3) {
+      status = 'heavy';
+    } else if (this.data.countInFiveMins < 3 && this.data.countInFiveMins > 1) {
+      status = 'middle';
+    }
+    if (this.data.cdMinute%5==0 && this.data.cdSecond=='00'){
         let counter = this.data.sectorCounter
-        counter.push(1);
+        counter.push(status);
         this.setData({
-          sectorCounter: counter
+          sectorCounter: counter,
+          countInFiveMins: 0
         });
     }
 
   },
   increment: function () {
     this.setData({
-      kicks: this.data.kicks + 1
-    })
+      kicks: this.data.kicks + 1,
+      countInFiveMins: this.data.countInFiveMins+1
+    });
+    if ((new Date()).getTime() - (new Date(this.data.lastValidTime)).getTime() > 300000)    {
+      this.data.lastValidTime = new Date();
+      this.data.validCount++;
+    }
   }
 })
