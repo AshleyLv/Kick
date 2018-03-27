@@ -217,11 +217,11 @@
   position: relative;
 }
 
-.adder .foot-image {
+.adder-btn-group .foot-image {
   width: 66rpx;
   height: 80rpx;
   position: absolute;
-  left: 250rpx;
+  left: 80rpx;
   top: 20rpx;
 }
 
@@ -239,6 +239,25 @@
   border: 3px solid #e08c38;
 }
 
-.adder:active .adder-btn {
+.adder-btn-group:active .adder-btn {
   background-color: #e08c38;
+}
+
+.reverse-adder-btn {
+  position: absolute;
+  right: 50rpx;
+  top: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+  font-size: 8px;
+  line-height: 10px;
+  background-color: #d8d7d6;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.reverse-adder-btn:active {
+  background-color: #a8a7a6;
 }

@@ -14,6 +14,7 @@ Page({
     kicks: 0,
     hasUserInfo: false,
     sectorCounter:[],
+    canReverse: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
@@ -93,7 +94,16 @@ Page({
   },
   increment: function () {
     this.setData({
-      kicks: this.data.kicks + 1
+      kicks: this.data.kicks + 1,
+      canReverse: true
     })
+  },
+  reverseLast: function() {
+    if(this.data.canReverese) {
+      this.setData({
+        kicks: this.data.kicks - 1,
+        canReverse: false
+      })
+    }
   }
 })

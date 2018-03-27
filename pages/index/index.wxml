@@ -43,7 +43,13 @@
   </view>
 
   <view style="visibility:{{status == 'running'?'visible':'hidden'}}" class="adder">
-    <button class="btn adder-btn" bindtap="increment">+1</button>
-    <image class="foot-image" src='../../assets/image/foot.png'></image>
+    <view class="adder-btn-group">
+      <button class="btn adder-btn" bindtap="increment">
+      +1
+      <image class="foot-image" src='../../assets/image/foot.png'></image>
+      </button>
+      
+    </view>
+    <button class="btn reverse-adder-btn" bindtap="reverseLast" disabled="{{!canReverse}}">撤消上次</button>
   </view>
 </view>

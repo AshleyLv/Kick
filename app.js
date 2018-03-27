@@ -7,6 +7,7 @@ App({
 
     wx.login({
       success: res => {
+        console.log(res)
       }
     })
 
