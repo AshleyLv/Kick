@@ -31,18 +31,17 @@
   </view>
   <view class="info" style="visibility:{{status == 'running'?'visible':'hidden'}}">
     <text class="kicks-label">胎动计数:</text>
-    <text class="kicks-number">{{kicks}}</text>
+    <text class="kicks-number">{{validCount}}</text>
     <text class="kicks-label">次</text>
   </view>
 
   <view style="visibility:{{status == 'running'?'visible':'hidden'}}" class="adder">
+
     <view class="adder-btn-group">
-      <button class="btn adder-btn" bindtap="increment">
-      +1
-      <image class="foot-image" src='../../assets/image/foot.png'></image>
+     <button class="btn adder-btn" bindtap="increment">{{kicks}}
+    <image class="foot-image" src='../../assets/image/foot.png'></image>
       </button>
-      
     </view>
-    <button class="btn reverse-adder-btn" bindtap="reverseLast" disabled="{{!canReverse}}">撤消上次</button>
+    <button class="btn reverse-adder-btn" bindtap="revertLast" disabled="{{!canReverse}}">撤消上次</button>
   </view>
 </view>

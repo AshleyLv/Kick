@@ -16,7 +16,9 @@ Page({
     countInFiveMins:0,
     validCount:0,
     hasUserInfo: false,
+    canReverse:false,
     sectorCounter:[],
+    lastKickIsValidCount:false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   onLoad: function () {
@@ -104,11 +106,35 @@ Page({
   increment: function () {
     this.setData({
       kicks: this.data.kicks + 1,
-      countInFiveMins: this.data.countInFiveMins+1
+      countInFiveMins: this.data.countInFiveMins+1,
+      canReverse: true
     });
     if ((new Date()).getTime() - (new Date(this.data.lastValidTime)).getTime() > 300000)    {
-      this.data.lastValidTime = new Date();
-      this.data.validCount++;
+      this.setData({
+        lastValidTime: new Date(),
+        validCount: this.data.validCount+1,
+        lastKickIsValidCount : true
+      });
+    } else {
+      this.setData({
+        lastKickIsValidCount:false
+      })
+    }
+  },
+  revertLast : function () {
+    if (this.data.lastKickIsValidCount){
+      this.setData({
+        validCount: this.data.validCount - 1,
+        lastKickIsValidCount: false,
+        kicks: this.data.kicks - 1,
+        canReverse:false,
+        lastValidTime: new Date((new Date(this.data.lastValidTime)).getTime() - 300000)
+      })
+    } else {
+      this.setData({
+        kicks: this.data.kicks - 1,
+        canReverse:false
+      })
     }
   }
 })

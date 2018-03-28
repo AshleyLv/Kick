@@ -223,6 +223,7 @@
   position: absolute;
   left: 80rpx;
   top: 20rpx;
+
 }
 
 .adder-btn {
@@ -235,8 +236,7 @@
   text-align: center;
   vertical-align: middle;
   padding-left: 80px;
-  border-radius: 0;
-  border: 3px solid #e08c38;
+  border: 2px solid #e08c38;
 }
 
 .adder-btn-group:active .adder-btn {
