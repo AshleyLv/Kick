@@ -42,6 +42,6 @@
     <image class="foot-image" src='../../assets/image/foot.png'></image>
       </button>
     </view>
-    <button class="btn reverse-adder-btn" bindtap="revertLast" disabled="{{!canReverse}}">撤消上次</button>
+    <button class="btn reverse-adder-btn" bindtap="revertLast" disabled="{{!canReverse}}"><image class="reverse-image" src='../../assets/image/revert.png'></image></button>
   </view>
 </view>

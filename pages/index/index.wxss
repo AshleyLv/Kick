@@ -261,3 +261,10 @@
 .reverse-adder-btn:active {
   background-color: #a8a7a6;
 }
+.reverse-image{
+  width:90rpx;
+  height:90rpx;
+  left:0;
+  position:absolute;
+
+}
