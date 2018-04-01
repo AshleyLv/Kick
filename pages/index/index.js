@@ -100,8 +100,9 @@ Page({
           sectorCounter: counter,
           countInFiveMins: 0
         });
+        // this.submitRecord();
     }
-
+    
   },
   increment: function () {
     this.setData({
@@ -136,5 +137,22 @@ Page({
         canReverse:false
       })
     }
+  },
+  submitRecord: function(){
+    wx.request({
+      url: 'https://wheelsfactory.cn/babykick/log',
+      method: "POST",
+      data: {
+        totalCount: 120,
+        validCount: 14,
+        submitDate: '20180401 11:12:00'
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function (result) {
+        console.log(result)
+      }
+    })
   }
 })

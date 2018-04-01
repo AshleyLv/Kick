@@ -11,7 +11,7 @@
     "navigationBarTextStyle":"black"
   },
     "tabBar": {
-      "color": "#BBDEF8",
+      "color": "#ef943b",
       "backgroundColor": "#fff",
       "list": [
         {
@@ -25,12 +25,6 @@
           "text": "历史",
           "iconPath": "assets/image/history.png",
           "selectedIconPath": "assets/image/history_selected.png"
-        },
-        {
-          "pagePath": "pages/config/config",
-          "text": "配置",
-          "iconPath": "assets/image/config.png",
-          "selectedIconPath": "assets/image/config_selected.png"
         }
       ]
     }

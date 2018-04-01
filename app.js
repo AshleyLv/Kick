@@ -8,6 +8,19 @@ App({
     wx.login({
       success: res => {
         console.log(res)
+        wx.request({
+          url: 'https://wheelsfactory.cn/babykick/login',
+          method: "POST",
+          data: {
+            code: res.code
+          },
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: function (result) {
+            console.log(result)
+          }
+        })
       }
     })
 
