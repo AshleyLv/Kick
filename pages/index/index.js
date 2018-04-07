@@ -66,6 +66,15 @@ Page({
     app.globalData.status = 'running'
     this.updateStatus()
     clearInterval(timer)
+    this.setData({
+      kicks: 0,
+      lastValidTime: new Date('2018.01.01'),
+      countInFiveMins: 0,
+      validCount: 0,
+      canReverse: false,
+      sectorCounter: [],
+      lastKickIsValidCount: false
+    })
     this.startTimer()
   },
   updateStatus: function() {
@@ -189,8 +198,6 @@ Page({
                 mask: true
               })
             }
-            
-
           }
         })
       }
@@ -200,10 +207,10 @@ Page({
   finish: function(){
     var self = this;
     let dec = this.data.cnt - 1;
-    if(dec>3580){
+    if(dec>1800){
       wx.showModal({
         title: '立即结束数胎动',
-        content: '记录不足30分钟数据部保存',
+        content: '记录不足30分钟数据将不保存',
         success: function (res) {
           if (res.confirm) {
             self.resetTimer()
