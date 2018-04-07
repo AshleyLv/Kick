@@ -60,6 +60,7 @@ Page({
       startDate: util.formatTime(new Date())
     })
 
+    clearInterval(timer);
     timer = setInterval(this.updateCountdown, 1000);
   },
   resetTimer: function (e) {
