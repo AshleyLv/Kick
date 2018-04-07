@@ -6,7 +6,7 @@ const formatTime = date => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 const currentTime = () => {
@@ -15,6 +15,17 @@ const currentTime = () => {
   const minute = date.getMinutes()
   const second = date.getSeconds()
   return [hour, minute, second].map(formatNumber).join(':')
+}
+
+const currentDate = () => {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth()
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+  return year+month+day+" "+[hour, minute, second].map(formatNumber).join(':')
 }
 
 const formatNumber = n => {

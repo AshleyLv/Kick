@@ -19,7 +19,8 @@ Page({
     canReverse:false,
     sectorCounter:[],
     lastKickIsValidCount:false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    startDate:''
   },
   onLoad: function () {
     this.updateStatus()
@@ -56,6 +57,7 @@ Page({
       cdSecond: '00',
       cnt: 3600,
       startTime: util.currentTime(),
+      startDate: util.formatTime(new Date())
     })
 
     timer = setInterval(this.updateCountdown, 1000);
@@ -77,6 +79,7 @@ Page({
       clearInterval(timer)
       app.globalData.status = 'stopped'
       this.updateStatus()
+      this.showsubmitRecordToast()
       return;
     }
     this.setData({
@@ -100,7 +103,6 @@ Page({
           sectorCounter: counter,
           countInFiveMins: 0
         });
-        // this.submitRecord();
     }
     
   },
@@ -138,21 +140,82 @@ Page({
       })
     }
   },
-  submitRecord: function(){
-    wx.request({
-      url: 'https://wheelsfactory.cn/babykick/log',
-      method: "POST",
-      data: {
-        totalCount: 120,
-        validCount: 14,
-        submitDate: '20180401 11:12:00'
+  showsubmitRecordToast: function(){
+    var self = this
+    var end = util.formatTime(new Date())
+    wx.showModal({
+      title: '提示',
+      content: '是否提交数据',
+      success: function (res) {
+        if (res.confirm) {
+          self.submitRecord(end)
+        } else if (res.cancel) {
+          self.resetTimer()
+        }
+      }
+    }) 
+  },
+  submitRecord: function(end){
+    var self = this;
+    wx.getStorage({
+      key: 'sessionKey',
+      success: function (sessionKey) {
+        wx.request({
+          url: 'https://wheelsfactory.cn/babykick/log',
+          method: "POST",
+          data: {
+            totalCount: self.data.kicks,
+            validCount: self.data.validCount,
+            submitDate: end,
+            sessionKey: sessionKey.data,
+            startTime: self.data.startDate,
+            endTime: end
       },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (result) {
-        console.log(result)
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: function (result) {
+            if(result.data){
+              wx.showToast({
+                title: '数据提交成功',
+                icon: 'succes',
+                duration: 1000,
+                mask: true
+              })
+            } else {
+              wx.showToast({
+                title: '数据提交失败',
+                duration: 1000,
+                mask: true
+              })
+            }
+            
+
+          }
+        })
       }
     })
+    
+  },
+  finish: function(){
+    var self = this;
+    let dec = this.data.cnt - 1;
+    if(dec>3580){
+      wx.showModal({
+        title: '立即结束数胎动',
+        content: '记录不足30分钟数据部保存',
+        success: function (res) {
+          if (res.confirm) {
+            self.resetTimer()
+            app.globalData.status = 'init'
+            self.updateStatus()
+          } else if (res.cancel) {
+            
+          }
+        }
+      })
+    } else {
+      this.showsubmitRecordToast()
+    }
   }
 })

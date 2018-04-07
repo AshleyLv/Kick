@@ -3,7 +3,8 @@
   <view class="row">
     <view class="control">
       <button class="btn startButton" wx:if="{{status == 'init'}}" bindtap="startTimer"> 开始 </button>
-      <button class="btn resetButton" wx:if="{{status == 'running'}}" bindtap="resetTimer"> 重置 </button>
+      <button class="btn btn-group-item resetButton" wx:if="{{status == 'running'}}" bindtap="resetTimer"> 重置 </button>
+      <button class="btn btn-group-item resetButton" wx:if="{{status == 'running'}}" bindtap="finish"> 结束 </button>
     </view>
     <view class="userinfo">
       <block>
@@ -42,6 +43,6 @@
     <image class="foot-image" src='../../assets/image/foot.png'></image>
       </button>
     </view>
-    <button class="btn reverse-adder-btn" bindtap="submitRecord" disabled="{{!canReverse}}"><image class="reverse-image" src='../../assets/image/revert.png' wx:if="{{canReverse}}"></image><image wx:if="{{!canReverse}}" class="reverse-image" src='../../assets/image/revert_disable.png'></image></button>
+    <button class="btn reverse-adder-btn" bindtap="revertLast" disabled="{{!canReverse}}"><image class="reverse-image" src='../../assets/image/revert.png' wx:if="{{canReverse}}"></image><image wx:if="{{!canReverse}}" class="reverse-image" src='../../assets/image/revert_disable.png'></image></button>
   </view>
 </view>

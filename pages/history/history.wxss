@@ -1,0 +1,35 @@
+.container{
+  padding:30rpx;
+}
+.item{
+  background: #fff;
+  width:100%;
+  min-height: 200rpx;
+  font-size:30rpx;
+
+}
+.content{
+  margin:10rpx 20rpx;
+}
+.time-label{
+  color:#ef943b;
+}
+.row{
+  margin-top:10rpx;
+}
+.col{
+  float:left;
+  width:33.3%;
+}
+.center{
+  text-align: center;
+}
+.low{
+  color:coral;
+}
+.normal{
+  color:#32e4b4;
+}
+.info{
+  color:#aaa;
+}

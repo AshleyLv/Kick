@@ -31,7 +31,6 @@
 }
 
 .control {
-  display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
@@ -51,6 +50,10 @@
 .resetButton {
   width: 150rpx;
   background-color: #6d6663;
+}
+
+.btn-group-item{
+  float:left;
 }
 
 .time {

@@ -7,7 +7,6 @@ App({
 
     wx.login({
       success: res => {
-        console.log(res)
         wx.request({
           url: 'https://wheelsfactory.cn/babykick/login',
           method: "POST",
@@ -18,7 +17,7 @@ App({
             'content-type': 'application/x-www-form-urlencoded'
           },
           success: function (result) {
-            console.log(result)
+            wx.setStorageSync('sessionKey', result.data)
           }
         })
       }

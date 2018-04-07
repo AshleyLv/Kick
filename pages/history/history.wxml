@@ -1,4 +1,28 @@
 <!--index.wxml-->
 <view class="container">
-<text>.....</text>
+  
+   <scroll-view class="scroll" scroll-top="" style="height: 100%;" scroll-y="true"  bindscrolltolower="loadMore"> 
+   <view wx:if="{{recordList.length==0}}" class="center">还没有数据哦</view>
+   <view class="item" wx:for="{{recordList}}" wx:for-item="item">
+    <view class="content">
+      <text class="time-label">{{item.submitDate}}</text>
+      <view class="row">
+        <view class="col center">
+          <text>胎动次数</text>
+          <view class='normal' wx:if="{{item.validCounts>3}}">{{item.validCounts}}(正常)</view>
+          <view class='low' wx:if="{{item.validCounts<=3}}">{{item.validCounts}}(偏低)</view>
+        </view>
+        <view class="col center">
+          <text>实际点击</text>
+          <view>{{item.totalCounts}}</view>
+        </view>
+        <view class="col info">
+          <view >开始:{{item.startTime}}</view>
+          <view>结束:{{item.endTime}}</view>
+          <view>时长:{{item.duration}}分钟</view>
+        </view>
+      </view>
+    </view>
+  </view> 
+   </scroll-view>  
 </view>
