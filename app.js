@@ -4,7 +4,9 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    wx.setKeepScreenOn({
+      keepScreenOn: true,
+    })
     wx.login({
       success: res => {
         wx.request({
