@@ -224,5 +224,6 @@ Page({
     } else {
       this.showsubmitRecordToast()
     }
+    clearInterval(timer)
   }
 })
