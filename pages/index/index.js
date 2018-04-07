@@ -12,7 +12,7 @@ Page({
     cdSecond: '',
     cnt: 0,
     kicks: 0,
-    lastValidTime: new Date('2018.01.01'),
+    lastValidTime: new Date('2018-01-01'),
     countInFiveMins:0,
     validCount:0,
     hasUserInfo: false,
@@ -64,12 +64,10 @@ Page({
     timer = setInterval(this.updateCountdown, 1000);
   },
   resetTimer: function (e) {
-    app.globalData.status = 'running'
-    this.updateStatus()
     clearInterval(timer)
     this.setData({
       kicks: 0,
-      lastValidTime: new Date('2018.01.01'),
+      lastValidTime: new Date('2018-01-01'),
       countInFiveMins: 0,
       validCount: 0,
       canReverse: false,
@@ -122,6 +120,7 @@ Page({
       countInFiveMins: this.data.countInFiveMins+1,
       canReverse: true
     });
+    
     if ((new Date()).getTime() - (new Date(this.data.lastValidTime)).getTime() > 300000)    {
       this.setData({
         lastValidTime: new Date(),
