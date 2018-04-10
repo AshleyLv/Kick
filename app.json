@@ -17,7 +17,7 @@
       "list": [
         {
           "pagePath": "pages/index/index",
-          "text": "首页",
+          "text": "记录",
           "iconPath": "assets/image/timer.png",
           "selectedIconPath": "assets/image/timer_selected.png"
         },

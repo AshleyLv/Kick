@@ -83,19 +83,19 @@ Page({
   },
   updateCountdown: function() {
     let dec = this.data.cnt - 1;
-    if(dec <= 0) {
-      clearInterval(timer)
-      app.globalData.status = 'stopped'
-      this.updateStatus()
-      this.showsubmitRecordToast()
-      return;
-    }
     this.setData({
       cnt: dec,
       cdMinute: parseInt(dec / 60) > 9 ? parseInt(dec / 60) : '0' + parseInt(dec / 60),
       cdSecond: dec % 60 > 9 ? dec % 60 : '0' + dec % 60 
     })
     this.drawSector();
+    if (dec <= 0) {
+      clearInterval(timer)
+      app.globalData.status = 'stopped'
+      this.updateStatus()
+      this.showsubmitRecordToast()
+      return;
+    }
   },
   drawSector: function() {
     let status = 'ligth';
@@ -120,7 +120,6 @@ Page({
       countInFiveMins: this.data.countInFiveMins+1,
       canReverse: true
     });
-    
     if ((new Date()).getTime() - (new Date(this.data.lastValidTime)).getTime() > 300000)    {
       this.setData({
         lastValidTime: new Date(),
@@ -198,6 +197,9 @@ Page({
                 mask: true
               })
             }
+            self.resetTimer()
+            app.globalData.status = 'init'
+            self.updateStatus()
           }
         })
       }
